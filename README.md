@@ -7,7 +7,7 @@ Three models were implemented and evaluated for this task: MobileNetV2, SqueezeN
 
 ## Project Files
 - **Data** :
-  - **image** : 4,825 forehead images from 965 individuals, captured at 5 angles (front, left 15°, left 30°, right 15°, right 30°).
+  - **image** : 4,825 forehead images from 965 individuals(10~60 ages, man & women), captured at 5 angles (front, left 15°, left 30°, right 15°, right 30°).
   - **label** : 4,825 JSON files containing forehead aging grades and image size details, assessed by experts
   - `json_to_datframe.csv` : A dataframe created from the 4,825 JSON files
 - **Notebook** :
@@ -24,15 +24,29 @@ Three models were implemented and evaluated for this task: MobileNetV2, SqueezeN
   - Image resizing : Resized images based on the bounding box coordinates for each image.
   - Data augmentation 
 - **Modeling** : **MobileNetV2*** and **SqueezeNet**(lighter models) were used, and each model underwent processes such as dropout, adjusting the number of nodes, and modifying the batch size to prevent overfitting and improve model performance.
+- **Evauation** : Assess models using accuracy and confusion matrices on the test set.
 
+  ***MobileNetV2 Test Result***
   
-- **Traiing and Hyperparameter Optimization**
+  ![test](assets/confusion_Matrix.png)
+
 
 ## Key Findings 
 - **Model Performance**
-  *** Model comparison using the imsage test set
+
+  ***Model comparison using the image test set***
+  
+  | Model Name | Training Speed (sec) | Test Accuracy | Model Size |
+  | --- | --- | --- | --- |
+  | SIFT+SVM | 0.42 | 0.60 | 374 KB |
+  | HOG+SVM | 5.87 | 0.82 | 23.1 MB |
+  | HOG+MLP | 4.91 | 0.85 | 1.6 MB |
+  | ResNet34 | 4080.90 (Google Colab GPU used) | 0.95 | 81.3 MB |
+
 
 ## Conclusion
-**Data-Driven approach to enhancing customer experience and business operation**
+- user end
+- business end
 
 ## Used Datasets
+- **Skin Images Datasets** : [Korean Skin Condition Measurement Data](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=71645)
