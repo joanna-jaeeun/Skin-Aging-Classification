@@ -18,13 +18,15 @@ Three models were implemented and evaluated for this task: MobileNetV2, SqueezeN
 
 
 ## Methodology 
-- **Preprocessing** : Image were resized / level were adjusted according to image similarity check using open CV 
-- **Modeling**
-  
-  ***MobieNetV2***
-- **Traiing and Hyperparameter Optimization**
+- **Constructing Dataframe** : Generate `json_to_datframe.csv` to make json files handling more easy.
+- **Preprocessing**
+  - Label rebalancing : Reduced 7 labels to 4 (0, 1 -> 1, 3, 4 -> 2, 5 -> 3, 6 -> 4) to reduce confusion in the confusion matrix and provide more intuitive aging grades for consumers.
+  - Image resizing : Resized images based on the bounding box coordinates for each image.
+  - Data augmentation 
+- **Modeling** : **MobileNetV2*** and **SqueezeNet**(lighter models) were used, and each model underwent processes such as dropout, adjusting the number of nodes, and modifying the batch size to prevent overfitting and improve model performance.
 
-  Fine-tyned with a lower learing rate -> 자동조정 하면 좋은뎅...
+  
+- **Traiing and Hyperparameter Optimization**
 
 ## Key Findings 
 - **Model Performance**
