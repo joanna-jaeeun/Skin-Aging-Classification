@@ -6,9 +6,16 @@ This project focuses on classifying the level of forehead skin aging into four c
 Three models were implemented and evaluated for this task: MobileNetV2, SqueezeNet. Each model was fine-tuned and adjusted to improve image classification performance for skin aging analysis.
 
 ## Project Files
-- **Data** : Orignal images are stored in 'data/raw', new generated data is in 'data'..?
-- **Notebook** : The notebook for traning and testing is in the 'notebook' folder.
-- **Result** : The trained models are saved in the `results/models` folder. Visualisations, such as confusion matrix, can be found in the `results/figures` folder, which also includes screenshots of the face mask detection in the video.
+- **Data** :
+  - **image** : 4,825 forehead images from 965 individuals, captured at 5 angles (front, left 15°, left 30°, right 15°, right 30°).
+  - **label** : 4,825 JSON files containing forehead aging grades and image size details, assessed by experts
+  - `json_to_datframe.csv` : A dataframe created from the 4,825 JSON files
+- **Notebook** :
+  - `json_to_datframe.ipynb` 
+  - `training.ipynb`, 'test.ipynb' : model training and test
+- **models** : the trained models are saved
+- **assets** : Visualisations, such as confusion matrix and real forehead images can be founded.
+
 
 ## Methodology 
 - **Preprocessing** : Image were resized / level were adjusted according to image similarity check using open CV 
