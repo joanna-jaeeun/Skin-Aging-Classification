@@ -28,7 +28,7 @@ Three models were implemented and evaluated for this task: MobileNetV2, SqueezeN
 
   ***MobileNetV2 Test Result***
   
-  ![test](assets/confusion_Matrix.png)
+  ![test](assets/confusionmatrix.png)
 
 
 ## Key Findings 
