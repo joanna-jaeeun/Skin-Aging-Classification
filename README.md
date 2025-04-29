@@ -19,12 +19,12 @@ Three models were implemented and evaluated for this task: MobileNetV2, SqueezeN
 
 ## Methodology 
 - **Constructing Dataframe** : Generate `json_to_datframe.csv` to make json files handling more easy.
-- **Preprocessing**
-  - Label rebalancing : Reduced 7 labels to 4 (0, 1 -> 1, 3, 4 -> 2, 5 -> 3, 6 -> 4) to reduce confusion in the confusion matrix and provide more intuitive aging grades for consumers.
-  - Image resizing : Resized images based on the bounding box coordinates for each image.
-  - Data augmentation 
+- **Preprocessing** :
+  Reduced the original 7 labels to 4 categories (0, 1 → 0 / 2, 3 → 1 / 4 → 2 / 5, 6 → 3) to minimize confusion in the confusion matrix and provide consumers with more intuitive aging level interpretations.
+Images were cropped based on bounding box coordinates. Applied data augmentation techniques including horizontal flip, vertical flip, and rotation.
+  
 - **Modeling** : **MobileNetV2*** and **SqueezeNet**(lighter models) were used, and each model underwent processes such as dropout, adjusting the number of nodes, and modifying the batch size to prevent overfitting and improve model performance.
-- **Evauation** : Assess models using accuracy and confusion matrices on the test set.
+- **Evaluation** : Assess models using accuracy and confusion matrices on the test set.
 
   ***MobileNetV2 Test Result***
   
@@ -36,17 +36,19 @@ Three models were implemented and evaluated for this task: MobileNetV2, SqueezeN
 
   ***Model comparison using the image test set***
   
-  | Model Name | Training Speed (sec) | Test Accuracy | Model Size |
-  | --- | --- | --- | --- |
-  | SIFT+SVM | 0.42 | 0.60 | 374 KB |
-  | HOG+SVM | 5.87 | 0.82 | 23.1 MB |
-  | HOG+MLP | 4.91 | 0.85 | 1.6 MB |
-  | ResNet34 | 4080.90 (Google Colab GPU used) | 0.95 | 81.3 MB |
+  | **Model**                          | **Test Accuracy** | **Model Size** | **Time** |
+  |------------------------------------|-------------------|----------------|----------|
+  | MobileNetV2                        | 0.63              |                |          |
+  | MobileNetV2 (+ Augmentation)       | 0.59              |                |          |
+  | SqueezeNet                         | 0.42              |                |          |
+
 
 
 ## Conclusion
-- user end
-- business end
+- User end : Personalized solution, Time- and cost-efficient skin diagnosis
+- Business end : Lightweight model enables fast skin diagnosis for consumers,
+Facilitates targeted marketing strategies,
+Enables efficient R&D — reducing development costs and focusing on high-demand products
 
 ## Used Datasets
 - **Skin Images Datasets** : [Korean Skin Condition Measurement Data](https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=71645)
